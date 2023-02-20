@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block css %}
+<link rel="stylesheet" href="{{url_for('static', filename='css/app.css')}}"/>
+{% endblock %}
+
+{% block main %}
+
+<form action="{{ url_for('contact') }}" method="POST">
+    {{form.crsf_token}}
+    <div class="contactform">
+        <h1>Contact Form</h1>
+        <span>Fill in this form to contact the site owners</span>
+    </div>
+    <div class="contactform">
+        <label>Name</label>
+        {{form.name}}
+    </div>
+    <div class="contactform">
+        <label>Email</label>
+        {{form.email}}
+    </div>
+    <div class="contactform">
+        <label>Subject</label>
+        {{form.subject}}
+    </div>
+    <div class="contactform">
+        <label>Message</label>
+        {{form.text}}
+    </div>
+    <button type="submit" class="btn">Send</button>
+</form>
+{% endblock %}
